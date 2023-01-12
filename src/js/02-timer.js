@@ -12,6 +12,7 @@ const spanMinutesEl = document.querySelector('span[data-minutes]');
 const spanSecondsEl = document.querySelector('span[data-seconds]');
 
 btnStartEl.disabled = true;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -22,11 +23,13 @@ const options = {
   },
   onClose(selectedDates) {
     const diff = selectedDates[0] - options.defaultDate;
+
     if((diff <= 0)){
       Notify.failure("Please choose a date in the future")
       return
     }
       btnStartEl.disabled = false;
+      
       btnStartEl.addEventListener('click', () =>{
    const intervalId = setInterval(() => {
         const diff = selectedDates[0] - new Date();

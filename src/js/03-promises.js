@@ -29,10 +29,14 @@ function createPromise(position, delay) {
     delay,
   };
   return new Promise((resolve, reject) => {
-    if (shouldResolve) {
-      resolve(objOfPromises);
-    } else {
-      reject(objOfPromises);
-    }
+    setTimeout(()=>{        
+      if (shouldResolve) {
+        resolve(objOfPromises);
+      } else {
+        reject(objOfPromises);
+      }   
+        }, delay)
+  
   });
 }
+
